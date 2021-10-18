@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     $nome = $_POST['nome'];
     $idade = $_POST['idade'];
 
@@ -7,7 +9,7 @@
     $categorias = ['infantil', 'adolescente', 'adulto'];
 
     if (empty ($nome)) {
-        echo 'O nome não pode ser vazio.';
+        $_SESSION['MsgErro'] = 'O nome não pode ser vazio';
         return;
     }
 
@@ -25,7 +27,9 @@
         echo 'Informe um número para idade.';
         return;
     }
-    
+
+
+
     if($idade >= 6 && $idade <= 12) {
         for ($i = 0; $i < count($categorias); $i++) {
             if($categorias[$i] == 'infantil') {
