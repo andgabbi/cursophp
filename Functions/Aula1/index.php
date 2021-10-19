@@ -27,6 +27,7 @@ include 'services/messages_sessions.php';
         if (!empty($msgSuccess)){
             echo $msgSuccess;
         }
+
     ?>
     <p>Nome: <input type="text" name="nome"> </p>
     <p>Idade: <input type="text" name="idade"> </p>
