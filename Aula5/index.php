@@ -18,7 +18,15 @@ session_start();
 
 <form action="script.php" method="post">
     <?php
-        $msg = isset($_SESSION['MsgErro'] );
+        $msgErro = isset($_SESSION['MsgErro']) ? $_SESSION['MsgErro'] : '';
+        if (!empty($msgErro)){
+            echo $msgErro;
+        }
+
+        $msgSuccess = isset($_SESSION['MsgSuccess']) ? $_SESSION['MsgSuccess'] : '';
+        if (!empty($msgSuccess)){
+            echo $msgSuccess;
+        }
     ?>
     <p>Nome: <input type="text" name="nome"> </p>
     <p>Idade: <input type="text" name="idade"> </p>
