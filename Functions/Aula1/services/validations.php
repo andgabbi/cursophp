@@ -1,25 +1,26 @@
 <?php
 
-    function validation_name ($nome) : bool {
-        if (empty($nome)) {
-            $_SESSION['MsgErro'] = 'O nome não pode ser vazio.';
+    function validationName ($name) : bool {
+        if (empty($name)) {
+            setMessageError('O nome não pode ser vazio.');
             return false;
         }
-        else if (strlen($nome) > 40){
-            $_SESSION['MsgErro'] = 'O nome deve conter mais que 3 caracteres.';
+        else if (strlen($name) < 3){
+            setMessageError('O nome deve conter mais que 3 caracteres.');
             return false;
         }
-        else if(strlen($nome) > 40) {
-            $_SESSION['MsgErro'] = 'O nome não pode conter mais que 40 caracteres.';
+        else if(strlen($name) > 40) {
+           setMessageError('O nome não pode conter mais que 40 caracteres.');
             return false;
         };
         return true;
     };
 
-    function validation_age ($idade) {
-        if (!is_numeric($idade)){
-            $_SESSION['MsgErro'] = 'A idade não pode ser vazia.';
-            return;
+    function validationAge ($age) {
+        if (!is_numeric($age)){
+            setMessageError('A idade não pode ser vazia.');
+            return false;
         }
+        return true;
     };
 ?>

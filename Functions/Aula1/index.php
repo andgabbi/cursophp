@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+include 'services/messages_sessions.php';
 
 ?>
 
@@ -18,12 +18,12 @@ session_start();
 
 <form action="script.php" method="post">
     <?php
-        $msgErro = isset($_SESSION['MsgErro']) ? $_SESSION['MsgErro'] : '';
+        $msgErro = getMessageError();
         if (!empty($msgErro)){
             echo $msgErro;
         }
 
-        $msgSuccess = isset($_SESSION['MsgSuccess']) ? $_SESSION['MsgSuccess'] : '';
+        $msgSuccess = getMessageSuccess();
         if (!empty($msgSuccess)){
             echo $msgSuccess;
         }
